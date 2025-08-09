@@ -32,14 +32,14 @@ function Home() {
 
     setLoading(true)
     try {
-        const searchResults = await searchMovies(searchQuery)
-        setMovies(searchResults)
-        setError(null)
+      const searchResults = await searchMovies(searchQuery)
+      setMovies(searchResults)
+      setError(null)
     } catch (err) {
-        console.log(err)
-        setError("Failed to search movies...")
+      console.log(err)
+      setError("Failed to search movies...")
     } finally {
-        setLoading(false)
+      setLoading(false)
     }
   };
 
@@ -58,7 +58,7 @@ function Home() {
         </button>
       </form>
 
-        {error && <div className="error-message">{error}</div>}
+      {error && <div className="error-message">{error}</div>}
 
       {loading ? (
         <div className="loading">Loading...</div>
