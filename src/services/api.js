@@ -17,9 +17,15 @@ export const getPopularMovies = async () => {
 
 export const searchMovies = async (query) => {
   const response = await axios.get(
-    `${BASE_URL}/search/movie?api_key=${
-      import.meta.env.VITE_API_KEY
-    }&query=${encodeURIComponent(query)}`
+    `${BASE_URL}/search/movie?include_adult=false&language=en-US&page=1&query=${encodeURIComponent(
+      query
+    )}`,
+    {
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
+      },
+    }
   );
   return response.data.results;
 };
